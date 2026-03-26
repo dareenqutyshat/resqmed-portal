@@ -1,111 +1,126 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // For now, we just navigate to the dashboard
-    navigate('/dashboard');
+    navigate('/dashboard'); 
   };
 
   return (
     <div style={pageStyle}>
-      <div style={cardStyle}>
-        <div style={logoIcon}>💙</div>
-        <h2 style={titleStyle}>Welcome Back</h2>
-        <p style={subtitleStyle}>Log in to your Mu'en account</p>
+      <nav style={navStyle}>
+        <div style={logoStyle}>Mu'en - مُعين</div>
+        <div style={navLinks}>
+          <Link to="/login" style={activeNavLink}>Sign In</Link>
+          <Link to="/signup" style={buttonNavLink}>Sign Up</Link>
+        </div>
+      </nav>
 
-        <form onSubmit={handleLogin} style={formStyle}>
-          <input 
-            type="email" 
-            placeholder="Email Address" 
-            style={inputStyle} 
-            required 
-          />
-          <input 
-            type="password" 
-            placeholder="Password" 
-            style={inputStyle} 
-            required 
-          />
-          
-          <button type="submit" style={primaryBtn}>
-            Log In
-          </button>
-        </form>
+      <main style={mainContainer}>
+        <h1 style={titleStyle}>Welcome Back</h1>
+        <p style={subtitleStyle}>Sign in to your Mu'en account</p>
+
+        <div style={cardStyle}>
+          <form onSubmit={handleLogin} style={formStyle}>
+            <div style={inputGroup}>
+              <label style={labelStyle}>Email</label>
+              <input 
+                type="email" 
+                placeholder="Ahmad@example.com" 
+                required 
+                style={inputStyle} 
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div style={inputGroup}>
+              <label style={labelStyle}>Password</label>
+              <input 
+                type="password" 
+                placeholder="Enter your password" 
+                required 
+                style={inputStyle} 
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button type="submit" style={primaryButtonStyle}>Sign In</button>
+          </form>
+        </div>
 
         <div style={footerStyle}>
-          <p style={textStyle}>Don't have an account?</p>
-          <button 
-            onClick={() => navigate('/signup')} 
-            style={linkBtn}
-          >
-            Create Account
-          </button>
+          <span style={footerText}>Don't have an account? </span>
+          <Link to="/signup" style={linkStyle}>Sign Up</Link>
         </div>
-      </div>
+        
+        <Link to="/" style={backLink}>← Back to Home</Link>
+      </main>
     </div>
   );
 };
 
-// --- Mobile-First Styles ---
-const pageStyle = {
-  height: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: '#f8fafc',
-  padding: '20px',
+// --- Styles with Mobile Fixes (Original Style Kept) ---
+const pageStyle = { minHeight: '100vh', backgroundColor: '#fcfcfc', fontFamily: 'sans-serif' };
+
+const navStyle = { 
+  display: 'flex', 
+  justifyContent: 'space-between', 
+  padding: '15px 5%', // Uses % instead of fixed px for mobile
+  alignItems: 'center', 
+  backgroundColor: '#fff', 
+  borderBottom: '1px solid #eee' 
 };
 
-const cardStyle = {
-  width: '100%',
-  maxWidth: '400px',
-  backgroundColor: '#ffffff',
-  padding: '40px 30px',
-  borderRadius: '24px',
-  boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
-  textAlign: 'center',
+const logoStyle = { fontWeight: 'bold', fontSize: '18px', color: '#1a1a1a' };
+const navLinks = { display: 'flex', gap: '15px', alignItems: 'center' };
+const activeNavLink = { textDecoration: 'none', color: '#1a1a1a', fontSize: '14px' };
+const buttonNavLink = { textDecoration: 'none', backgroundColor: '#2563eb', color: '#fff', padding: '8px 16px', borderRadius: '6px', fontSize: '13px', fontWeight: 'bold' };
+
+const mainContainer = { 
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'center', 
+  paddingTop: '40px',
+  paddingLeft: '20px', 
+  paddingRight: '20px' 
 };
 
-const logoIcon = { fontSize: '40px', marginBottom: '15px' };
-const titleStyle = { fontSize: '24px', fontWeight: '800', color: '#1e293b', marginBottom: '8px' };
-const subtitleStyle = { fontSize: '15px', color: '#64748b', marginBottom: '30px' };
+const titleStyle = { fontSize: '28px', fontWeight: 'bold', margin: '0 0 8px 0', color: '#111', textAlign: 'center' };
+const subtitleStyle = { color: '#666', marginBottom: '30px', fontSize: '15px', textAlign: 'center' };
 
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '15px' };
-
-const inputStyle = {
-  padding: '16px',
-  borderRadius: '12px',
-  border: '1px solid #e2e8f0',
-  fontSize: '16px', // Prevents iPhone zoom-on-focus
-  backgroundColor: '#f1f5f9',
-  outline: 'none',
+const cardStyle = { 
+  width: '100%', 
+  maxWidth: '400px', 
+  backgroundColor: '#fff', 
+  border: '1px solid #e5e7eb', 
+  borderRadius: '16px', 
+  padding: '32px', 
+  boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+  boxSizing: 'border-box' 
 };
 
-const primaryBtn = {
-  marginTop: '10px',
-  padding: '16px',
-  borderRadius: '12px',
-  border: 'none',
-  backgroundColor: '#2563eb',
-  color: 'white',
-  fontSize: '16px',
-  fontWeight: '700',
-  cursor: 'pointer',
+const formStyle = { display: 'flex', flexDirection: 'column', gap: '20px' };
+const inputGroup = { display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' };
+const labelStyle = { fontSize: '14px', fontWeight: '600', color: '#374151' };
+
+const inputStyle = { 
+  padding: '12px', 
+  borderRadius: '8px', 
+  border: '1px solid #d1d5db', 
+  fontSize: '16px', // Prevents iPhone zoom-in
+  outline: 'none' 
 };
 
-const footerStyle = { marginTop: '25px' };
-const textStyle = { fontSize: '14px', color: '#64748b', marginBottom: '5px' };
-const linkBtn = { 
-  background: 'none', 
-  border: 'none', 
-  color: '#2563eb', 
-  fontWeight: '700', 
-  cursor: 'pointer', 
-  fontSize: '14px' 
-};
+const primaryButtonStyle = { backgroundColor: '#2563eb', color: '#fff', border: 'none', padding: '14px', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px' };
+
+const footerStyle = { marginTop: '24px', fontSize: '14px', textAlign: 'center' };
+const footerText = { color: '#666' };
+const linkStyle = { color: '#2563eb', fontWeight: 'bold', textDecoration: 'none' };
+const backLink = { marginTop: '20px', textDecoration: 'none', color: '#666', fontSize: '14px', marginBottom: '40px' };
 
 export default Login;
