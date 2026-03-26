@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div style={fullPage}>
       <div style={heroCard}>
-        <h1 style={logoText}>💙 Mu'en</h1>
+        <h1 style={logoText}>Mu'en</h1>
         <h2 style={headline}>Medical Support, Simplified.</h2>
         <p style={subText}>Connecting patients with volunteers and doctors in one secure portal.</p>
         
