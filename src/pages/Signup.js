@@ -9,7 +9,7 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    // Logic for signup goes here
+    
     navigate('/dashboard'); 
   };
 
@@ -77,7 +77,7 @@ const Signup = () => {
   );
 };
 
-// --- Styles (Matching your Login style exactly) ---
+
 const pageStyle = { minHeight: '100vh', backgroundColor: '#fcfcfc', fontFamily: 'sans-serif' };
 
 const navStyle = { 
@@ -125,7 +125,7 @@ const inputStyle = {
   padding: '12px', 
   borderRadius: '8px', 
   border: '1px solid #d1d5db', 
-  fontSize: '16px', // Keeps it mobile-friendly
+  fontSize: '16px', 
   outline: 'none' 
 };
 

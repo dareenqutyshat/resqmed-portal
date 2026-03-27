@@ -6,15 +6,15 @@ const Dashboard = () => {
 
   return (
     <div style={containerStyle}>
-      {/* --- Navigation Bar --- */}
+      {}
       <nav style={navStyle}>
-        <div style={logoStyle}>💙 Mu'en</div>
+        <div style={logoStyle}> Mu'en</div>
         <div style={navLinks}>
           <button onClick={() => navigate('/')} style={logoutBtn}>Logout</button>
         </div>
       </nav>
 
-      {/* --- Main Content --- */}
+      {}
       <main style={mainStyle}>
         <header style={headerStyle}>
           <h1 style={titleStyle}>Welcome to Mu'en</h1>
@@ -62,7 +62,7 @@ const Dashboard = () => {
   );
 };
 
-// --- Responsive CSS-in-JS Styles ---
+
 
 const containerStyle = {
   minHeight: '100vh',
@@ -126,11 +126,10 @@ const subtitleStyle = {
   color: '#64748b',
 };
 
-/* THE MAGIC LINE FOR MOBILE RESPONSIVENESS */
+
 const gridStyle = {
   display: 'grid',
-  // On mobile (<600px), it will be 1 column. 
-  // On Desktop, it will fit as many 280px cards as possible.
+ 
   gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
   gap: '1.5rem',
 };
