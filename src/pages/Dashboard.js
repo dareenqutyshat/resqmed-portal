@@ -1,5 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../LanguageContext'; 
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -51,7 +54,7 @@ const Dashboard = () => {
           {/* Card 4: Locations */}
           <div style={cardStyle}>
             <div style={iconCircle}>📍</div>
-            <h3 style={cardTitle}>Nearby Centers</h3>
+            <h3 style={cardTitle}>Nearby Centerhjjjhjhjhhhjhjhjhs</h3>
             <p style={cardText}>Find the nearest open clinic, hospital, or pharmacy.</p>
             <button style={secondaryBtn}>Open Map</button>
           </div>

@@ -1,0 +1,40 @@
+export const translations = {
+  en: {
+    logoName: "Mu'en",
+    logout: "Logout",
+    welcome: "Welcome to Mu'en",
+    subtitle: "How can we support you today?",
+    card1Title: "Emergency Aid",
+    card1Desc: "Directly connect with nearby medical volunteers for urgent help.",
+    card1Btn: "Request Help",
+    card2Title: "Medicine & Supplies",
+    card2Desc: "Request specific medications or donate surplus supplies.",
+    card2Btn: "View Supplies",
+    card3Title: "Tele-Consult",
+    card3Desc: "Chat with an available doctor for non-emergency medical advice.",
+    card3Btn: "Start Chat",
+    card4Title: "Nearby Centers",
+    card4Desc: "Find the nearest open clinic, hospital, or pharmacy.",
+    card4Btn: "Open Map",
+    direction: "ltr"
+  },
+  ar: {
+    logoName: "معين",
+    logout: "تسجيل الخروج",
+    welcome: "مرحباً بكم في معين",
+    subtitle: "كيف يمكننا مساعدتك اليوم؟",
+    card1Title: "طوارئ طبية",
+    card1Desc: "تواصل مباشرة مع المتطوعين الطبيين القريبين للحصول على مساعدة عاجلة.",
+    card1Btn: "طلب مساعدة",
+    card2Title: "الأدوية والمستلزمات",
+    card2Desc: "اطلب أدوية محددة أو تبرع بالفائض من المستلزمات الطبية.",
+    card2Btn: "عرض المستلزمات",
+    card3Title: "استشارة طبية",
+    card3Desc: "تحدث مع طبيب متاح للحصول على استشارة طبية غير طارئة.",
+    card3Btn: "بدء المحادثة",
+    card4Title: "المراكز القريبة",
+    card4Desc: "ابحث عن أقرب عيادة أو مستشفى أو صيدلية مفتوحة.",
+    card4Btn: "فتح الخريطة",
+    direction: "rtl"
+  }
+};
